@@ -1,5 +1,5 @@
 ---
-import metricapolo from "../assets/images/metricapolo.svg";
+import metricapolo from "../assets/polos/GUIAtalla.webp";
 ---
 
 <div class="product-modal" id="product-modal">
@@ -19,7 +19,7 @@ import metricapolo from "../assets/images/metricapolo.svg";
         <div class="selection-side">
           <h2 id="modal-title">Nombre del Producto</h2>
           <div class="modal-price" id="modal-price">S/. 00.00</div>
-          
+
           <div class="selection-group">
             <label class="label-bold">COLORES:</label>
             <div class="color-options" id="color-selector">
@@ -115,7 +115,9 @@ import metricapolo from "../assets/images/metricapolo.svg";
     justify-content: center;
   }
 
-  .product-modal.active { display: flex; }
+  .product-modal.active {
+    display: flex;
+  }
 
   .modal-overlay {
     position: absolute;
@@ -139,8 +141,14 @@ import metricapolo from "../assets/images/metricapolo.svg";
   }
 
   @keyframes modalIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .close-modal {
@@ -161,7 +169,9 @@ import metricapolo from "../assets/images/metricapolo.svg";
     transition: 0.3s;
   }
 
-  .close-modal:hover { transform: rotate(90deg); }
+  .close-modal:hover {
+    transform: rotate(90deg);
+  }
 
   .modal-content {
     overflow-y: auto;
@@ -207,7 +217,9 @@ import metricapolo from "../assets/images/metricapolo.svg";
     margin-bottom: 2.5rem;
   }
 
-  .selection-group { margin-bottom: 2.5rem; }
+  .selection-group {
+    margin-bottom: 2.5rem;
+  }
 
   .label-bold {
     display: block;
@@ -218,7 +230,11 @@ import metricapolo from "../assets/images/metricapolo.svg";
     letter-spacing: 2px;
   }
 
-  .color-options { display: flex; gap: 1.2rem; align-items: center; }
+  .color-options {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+  }
 
   :global(.color-dot) {
     width: 34px !important;
@@ -235,7 +251,11 @@ import metricapolo from "../assets/images/metricapolo.svg";
     transform: scale(1.1);
   }
 
-  .size-options { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .size-options {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
 
   .size-btn {
     width: 55px;
@@ -247,8 +267,14 @@ import metricapolo from "../assets/images/metricapolo.svg";
     transition: 0.3s;
   }
 
-  .size-btn:hover { background: #f9f9f9; }
-  .size-btn.active { background: #000; color: #fff; border-color: #000; }
+  .size-btn:hover {
+    background: #f9f9f9;
+  }
+  .size-btn.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
 
   .size-guide-trigger {
     background: none;
@@ -282,9 +308,14 @@ import metricapolo from "../assets/images/metricapolo.svg";
     transition: 0.4s;
   }
 
-  .btn-confirm-add:hover { background: var(--color-primary); }
+  .btn-confirm-add:hover {
+    background: var(--color-primary);
+  }
 
-  .style-options { display: flex; gap: 1rem; }
+  .style-options {
+    display: flex;
+    gap: 1rem;
+  }
 
   :global(.style-btn) {
     flex: 1;
@@ -298,7 +329,10 @@ import metricapolo from "../assets/images/metricapolo.svg";
     transition: 0.3s;
   }
 
-  :global(.style-btn.active) { background: #000 !important; color: #fff !important; }
+  :global(.style-btn.active) {
+    background: #000 !important;
+    color: #fff !important;
+  }
 
   /* SIZE GUIDE MODAL */
   .size-guide-modal {
@@ -315,7 +349,9 @@ import metricapolo from "../assets/images/metricapolo.svg";
     padding: 2rem;
   }
 
-  .size-guide-modal.active { display: flex; }
+  .size-guide-modal.active {
+    display: flex;
+  }
 
   .guide-content {
     background: white;
@@ -326,7 +362,10 @@ import metricapolo from "../assets/images/metricapolo.svg";
     text-align: center;
   }
 
-  .guide-content img { width: 100%; margin: 2rem 0; }
+  .guide-content img {
+    width: 100%;
+    margin: 2rem 0;
+  }
 
   .close-guide {
     position: absolute;
@@ -346,22 +385,30 @@ import metricapolo from "../assets/images/metricapolo.svg";
       border-radius: 0;
     }
 
-    .modal-grid { grid-template-columns: 1fr; }
+    .modal-grid {
+      grid-template-columns: 1fr;
+    }
 
     .product-preview {
       padding: 3rem 2rem;
       height: 35vh;
     }
 
-    .product-preview img { max-height: 100%; }
+    .product-preview img {
+      max-height: 100%;
+    }
 
     .selection-side {
       padding: 2rem 1.5rem 8rem; /* Extra padding for sticky button */
     }
 
-    h2 { font-size: 1.6rem; }
+    h2 {
+      font-size: 1.6rem;
+    }
 
-    .modal-price { margin-bottom: 2rem; }
+    .modal-price {
+      margin-bottom: 2rem;
+    }
 
     .btn-confirm-add {
       position: fixed;
@@ -379,10 +426,13 @@ import metricapolo from "../assets/images/metricapolo.svg";
       border-radius: 50%;
       width: 45px;
       height: 45px;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.8);
     }
 
-    .guide-content { padding: 2rem 1rem; width: 95%; }
+    .guide-content {
+      padding: 2rem 1rem;
+      width: 95%;
+    }
   }
 </style>
 
@@ -397,14 +447,19 @@ import metricapolo from "../assets/images/metricapolo.svg";
 
     // Inyectar datos en el modal
     document.getElementById("modal-title").innerText = product.name;
-    document.getElementById("modal-price").innerText = `S/. ${product.price.toFixed(2)}`;
+    document.getElementById("modal-price").innerText =
+      `S/. ${product.price.toFixed(2)}`;
     document.getElementById("modal-img").src = product.image;
 
     // Guardar producto actual para la confirmación
     window._currentModalProduct = product;
     window._selectedColor = product.colors ? product.colors[0].name : "";
     window._selectedSize = "";
-    window._selectedStyle = product.styles ? product.styles[0] : (product.name.includes("EDICIÓN ESPECIAL") ? "Sin Cierre" : "");
+    window._selectedStyle = product.styles
+      ? product.styles[0]
+      : product.name.includes("EDICIÓN ESPECIAL")
+        ? "Sin Cierre"
+        : "";
 
     // Configurar Estilos
     const styleGroup = document.getElementById("style-group");
@@ -412,18 +467,24 @@ import metricapolo from "../assets/images/metricapolo.svg";
     const sizeGuideBtn = document.getElementById("size-guide-btn");
 
     if (styleGroup && styleSelector) {
-      const styles = product.styles || (product.name.includes("EDICIÓN ESPECIAL") ? ["Sin Cierre", "Con Cierre"] : []);
+      const styles =
+        product.styles ||
+        (product.name.includes("EDICIÓN ESPECIAL")
+          ? ["Sin Cierre", "Con Cierre"]
+          : []);
       if (styles.length > 0) {
         styleGroup.style.display = "block";
         if (sizeGuideBtn) sizeGuideBtn.style.display = "none";
         styleSelector.innerHTML = "";
-        styles.forEach(style => {
+        styles.forEach((style) => {
           const btn = document.createElement("button");
           btn.className = `style-btn ${style === window._selectedStyle ? "active" : ""}`;
           btn.innerText = style;
           btn.onclick = () => {
             window._selectedStyle = style;
-            document.querySelectorAll(".style-btn").forEach(b => b.classList.remove("active"));
+            document
+              .querySelectorAll(".style-btn")
+              .forEach((b) => b.classList.remove("active"));
             btn.classList.add("active");
           };
           styleSelector.appendChild(btn);
@@ -440,15 +501,17 @@ import metricapolo from "../assets/images/metricapolo.svg";
       colorContainer.innerHTML = "";
       if (product.colors && product.colors.length > 0) {
         // Inicializar imagen actual
-        window._selectedColorImage = product.image; 
+        window._selectedColorImage = product.image;
 
-        product.colors.forEach(color => {
+        product.colors.forEach((color) => {
           const dot = document.createElement("button");
           dot.className = `color-dot ${color.name === window._selectedColor ? "active" : ""}`;
           dot.style.backgroundColor = color.hex;
           dot.addEventListener("click", () => {
             window._selectedColor = color.name;
-            document.querySelectorAll(".color-dot").forEach(d => d.classList.remove("active"));
+            document
+              .querySelectorAll(".color-dot")
+              .forEach((d) => d.classList.remove("active"));
             dot.classList.add("active");
             if (color.image) {
               document.getElementById("modal-img").src = color.image;
@@ -461,7 +524,9 @@ import metricapolo from "../assets/images/metricapolo.svg";
     }
 
     // Resetear tallas
-    document.querySelectorAll(".size-btn").forEach(btn => btn.classList.remove("active"));
+    document
+      .querySelectorAll(".size-btn")
+      .forEach((btn) => btn.classList.remove("active"));
 
     // Mostrar modal
     modal.classList.add("active");
@@ -483,14 +548,16 @@ import metricapolo from "../assets/images/metricapolo.svg";
     modal?.classList.remove("active");
     document.body.style.overflow = "auto";
   };
-  
+
   closeBtn?.addEventListener("click", closeModal);
   overlay?.addEventListener("click", closeModal);
 
   // Seleccionar Talla
   document.querySelectorAll(".size-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".size-btn").forEach((b) => b.classList.remove("active"));
+      document
+        .querySelectorAll(".size-btn")
+        .forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       (window as any)._selectedSize = btn.getAttribute("data-size");
     });
@@ -500,7 +567,8 @@ import metricapolo from "../assets/images/metricapolo.svg";
   confirmBtn?.addEventListener("click", () => {
     const selectedSize = (window as any)._selectedSize;
     if (!selectedSize) {
-      if (window.showToast) window.showToast("Por favor, selecciona una talla", "error");
+      if (window.showToast)
+        window.showToast("Por favor, selecciona una talla", "error");
       return;
     }
 
@@ -514,7 +582,11 @@ import metricapolo from "../assets/images/metricapolo.svg";
       ...currentProduct,
       name: `${currentProduct.name} (${selectedColor}${styleStr} - Talla ${selectedSize})`,
       image: selectedColorImage || currentProduct.image, // Usar imagen del color
-      variant: { color: selectedColor, size: selectedSize, style: selectedStyle },
+      variant: {
+        color: selectedColor,
+        size: selectedSize,
+        style: selectedStyle,
+      },
     };
 
     if (window.addToCart) {
@@ -524,6 +596,10 @@ import metricapolo from "../assets/images/metricapolo.svg";
   });
 
   // Guía de tallas
-  sizeGuideBtn?.addEventListener("click", () => sizeGuideModal?.classList.add("active"));
-  closeGuide?.addEventListener("click", () => sizeGuideModal?.classList.remove("active"));
+  sizeGuideBtn?.addEventListener("click", () =>
+    sizeGuideModal?.classList.add("active"),
+  );
+  closeGuide?.addEventListener("click", () =>
+    sizeGuideModal?.classList.remove("active"),
+  );
 </script>
