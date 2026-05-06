@@ -1,368 +1,362 @@
 ---
 import imgPolos from "../assets/images/polos.jpeg";
+import poloNegro from "../assets/polos/Negro.png";
+import poloVino from "../assets/polos/Guinda.png";
+import poloArena from "../assets/polos/Arena.png";
+import poloMilitar from "../assets/polos/VerdeMilitar.png";
+import poloAzulmarino from "../assets/polos/AzulMarino.png";
 ---
 
-<section class="polera-showcase-loco" id="polera-trigger">
-  <!-- Background Decorative Text -->
-  <div class="bg-scroll-text" id="bg-text-move">
-    MISIONES COLLECTION • ESTILO URBANO • COLORES •
-  </div>
-
-  <div class="floating-blobs">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
+<section class="polera-showcase-premium" id="polera-trigger">
+  <div class="scrolling-text-wrapper desktop-only">
+    <div class="scrolling-text" id="bg-text-move">
+      MISIONES • STREETWEAR • PREMIUM • QUALITY • FE •
+    </div>
   </div>
 
   <div class="container">
-    <div class="header-minimal">
-      <h2 class="title-modern">
-        COLORES A TU <span class="outline-text">ESTILO</span>
+    <div class="header-section animate-reveal-polera">
+      <h2 class="title-main">
+        LA ESENCIA DEL <span class="outline-text">ESTILO</span>
       </h2>
-      <p class="subtitle">Encuentra el tono que define tu personalidad.</p>
+      <div class="subtitle-wrapper">
+        <span class="line"></span>
+        <p class="subtitle">COLECCIÓN MISIONES 2026</p>
+        <span class="line"></span>
+      </div>
     </div>
 
-    <div class="full-view-container">
-      <div class="collection-frame reveal-loco">
+    <div class="showcase-visual animate-reveal-polera">
+      <div class="image-container">
         <img
           src={imgPolos.src}
           alt="Colección completa Misiones"
-          class="full-image-parallax"
+          class="parallax-image"
         />
-        <div class="floating-tag">NUEVA TEMPORADA</div>
+        <div class="glass-overlay"></div>
+        <div class="floating-badge">NUEVA ERA</div>
       </div>
+    </div>
 
-      <div class="simple-cta-box reveal-loco">
-        <div class="cta-content">
-          <div class="price-badge-floating">
-            <span class="price-label">OFERTA</span>
-            <span class="price-value">S/. 30</span>
+    <div class="showcase-content">
+      <div class="info-card animate-reveal-polera">
+        <div class="offer-tag">OFERTA LIMITADA</div>
+        <h3>MÁS QUE ROPA, <br/><span class="highlight">ES UN MENSAJE</span></h3>
+        <p>Lleva la calidad premium a un precio sin precedentes. Algodón de alta densidad, bordado reforzado y un ajuste perfecto.</p>
+        
+        <div class="pricing-row">
+          <div class="price-box">
+            <span class="label">Ahora</span>
+            <span class="value">S/ 30.00</span>
           </div>
-
-          <span class="eyebrow">Precio de Lanzamiento</span>
-          <h3>
-            EL MEJOR ESTILO <br />
-            <span class="text-gradient">AL MEJOR PRECIO</span>
-          </h3>
-          <p>
-            No sacrifiques calidad por precio. Llévate lo último en tendencia
-            streetwear por solo 30 soles.
-          </p>
-
-          <div class="cta-actions">
-            <button class="btn-buy-now-premium" id="buy-polera-loco">
-              <span class="btn-inner">
-                <span class="btn-text">COMPRAR AHORA</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
-                    points="12 5 19 12 12 19"></polyline></svg
-                >
-              </span>
-            </button>
+          <div class="divider"></div>
+          <div class="shipping-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Envío a todo Perú</span>
           </div>
         </div>
+
+        <button
+          class="btn-checkout-premium"
+          id="buy-polera-loco"
+        >
+          <span>PEDIR POR WHATSAPP</span>
+          <div class="btn-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </button>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .polera-showcase-loco {
-    position: relative;
-    padding: 8rem 0 0rem;
+  .polera-showcase-premium {
     background-color: #000;
+    color: #fff;
+    padding: 10rem 0;
+    position: relative;
     overflow: hidden;
   }
 
-  .bg-scroll-text {
+  .scrolling-text-wrapper {
     position: absolute;
-    top: 25%;
+    top: 15%;
     left: 0;
-    font-size: 20vw;
-    font-weight: 950;
-    color: rgba(255, 255, 255, 0.03);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
-    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
     pointer-events: none;
-    text-transform: uppercase;
     z-index: 1;
   }
 
-  .header-minimal {
-    position: relative;
-    text-align: center;
-    margin-bottom: 4rem;
+  .scrolling-text {
+    font-size: 15vw;
+    font-weight: 950;
+    color: rgba(255, 255, 255, 0.02);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: -0.5vw;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
     z-index: 10;
   }
 
-  .title-modern {
-    font-size: clamp(3.5rem, 12vw, 10rem);
+  .header-section {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .title-main {
+    font-size: clamp(3rem, 10vw, 7rem);
     font-weight: 950;
-    line-height: 0.8;
-    letter-spacing: -6px;
-    color: #fff;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 2rem;
   }
 
   .outline-text {
     color: transparent;
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.5);
+  }
+
+  .subtitle-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .subtitle-wrapper .line {
+    height: 1px;
+    width: 60px;
+    background: var(--color-primary);
   }
 
   .subtitle {
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 4px;
     color: var(--color-primary);
-    letter-spacing: 5px;
-    text-transform: uppercase;
   }
 
-  .full-view-container {
+  .showcase-visual {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 6rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
   }
 
-  .collection-frame {
-    width: 100%;
+  .image-container {
     position: relative;
-    background: #000;
     line-height: 0;
   }
 
-  .full-image-parallax {
+  .parallax-image {
     width: 100%;
     height: auto;
-    display: block;
-    filter: contrast(1.1) brightness(0.9);
-    transition: filter 0.5s ease;
+    object-fit: cover;
+    transform: scale(1.1);
   }
 
-  .floating-tag {
-    position: absolute;
-    bottom: 4rem;
-    right: 4rem;
-    background: #fff;
-    color: #000;
-    padding: 1rem 2.5rem;
-    font-family: var(--font-mono);
-    font-weight: 900;
-    font-size: 0.9rem;
-    letter-spacing: 3px;
-    z-index: 5;
-    text-transform: uppercase;
-  }
-
-  .simple-cta-box {
-    width: 100%;
-    background: #000;
-    padding: 10rem 2rem 15rem;
-    text-align: center;
-    position: relative;
-    z-index: 20;
-    color: #fff;
-  }
-
-  .price-badge-floating {
-    display: inline-flex;
-    flex-direction: column;
-    background: var(--color-primary);
-    color: #fff;
-    padding: 1.5rem 2.5rem;
-    margin-bottom: 3rem;
-    transform: rotate(-3deg);
-    box-shadow: 0 15px 30px rgba(85, 153, 138, 0.4);
-    border-radius: 5px;
-  }
-
-  .price-label {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 900;
-    letter-spacing: 4px;
-    opacity: 0.9;
-  }
-
-  .price-value {
-    font-size: 3.5rem;
-    font-weight: 950;
-    line-height: 1;
-    margin-top: 0.5rem;
-  }
-
-  .eyebrow {
-    display: block;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    color: #888;
-    letter-spacing: 6px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-  }
-
-  .cta-content h3 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 950;
-    margin-bottom: 2rem;
-    line-height: 1.1;
-    letter-spacing: -2px;
-  }
-
-  .text-gradient {
-    background: linear-gradient(to right, #fff, var(--color-primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .cta-content p {
-    font-size: 1.2rem;
-    color: #888;
-    margin-bottom: 4rem;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-  }
-
-  .btn-buy-now-premium {
-    position: relative;
-    padding: 2rem 6rem;
-    background: #fff;
-    color: #000;
-    border: none;
-    border-radius: 0;
-    font-weight: 950;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    cursor: pointer;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
-  }
-
-  .btn-inner {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .btn-buy-now-premium::before {
-    content: "";
+  .glass-overlay {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8));
+  }
+
+  .floating-badge {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: #fff;
+    color: #000;
+    padding: 0.8rem 2rem;
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    border-radius: 4px;
+  }
+
+  .info-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px);
+    padding: 5rem 4rem;
+    border-radius: 3rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+  }
+
+  .offer-tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
     background: var(--color-primary);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 1;
-  }
-
-  .btn-buy-now-premium:hover {
     color: #fff;
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 30px 60px rgba(85, 153, 138, 0.4);
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    margin-bottom: 2rem;
   }
 
-  .btn-buy-now-premium:hover::before {
-    left: 0;
+  .info-card h3 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2rem;
   }
 
-  .btn-buy-now-premium svg {
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  .highlight { color: var(--color-primary); }
+
+  .info-card p {
+    font-size: 1.2rem;
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .btn-buy-now-premium:hover svg {
-    transform: translateX(10px);
+  .pricing-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .price-box .label {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .price-box .value {
+    font-size: 3.5rem;
+    font-weight: 950;
+    color: #fff;
+  }
+
+  .pricing-row .divider {
+    height: 40px;
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .shipping-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #55998a;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .btn-checkout-premium {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    color: #000;
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 100px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-checkout-premium:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(85, 153, 138, 0.3);
   }
 
   @media (max-width: 768px) {
-    .polera-showcase-loco {
-      padding: 6rem 0 4rem;
+    .polera-showcase-premium {
+      padding: 4rem 0;
     }
-    .title-modern {
-      font-size: 4rem;
+    .info-card {
+      padding: 3rem 1.5rem;
+      border-radius: 2rem;
+    }
+    .pricing-row {
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .price-box .value {
+      font-size: 2.8rem;
+    }
+    .pricing-row .divider {
+      display: none;
+    }
+    .btn-checkout-premium {
+      padding: 1.2rem 2rem;
+      font-size: 1rem;
+      gap: 1rem;
+    }
+    .title-main {
+      font-size: 3rem;
       letter-spacing: -2px;
-    }
-    .simple-cta-box {
-      padding: 4rem 1.5rem 8rem;
-    }
-    .price-value {
-      font-size: 2.5rem;
-    }
-    .btn-buy-now-premium {
-      padding: 1.5rem 3rem;
-      font-size: 1.1rem;
     }
   }
 </style>
 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Background Text Horizontal Move
-  gsap.to("#bg-text-move", {
-    scrollTrigger: {
-      trigger: ".polera-showcase-loco",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 2,
-    },
-    xPercent: -50,
-  });
-
-  // Image Parallax (Subtle to avoid cropping)
-  gsap.to(".full-image-parallax", {
-    scrollTrigger: {
-      trigger: ".collection-frame",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true,
-    },
-    y: 50,
-    scale: 1.1,
-  });
-
-  // Reveal Animations
-  const revealLoco = document.querySelectorAll(".reveal-loco");
-  revealLoco.forEach((el) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-      },
-      y: 60,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-    });
-  });
-
-  // Funcionalidad del botón de compra
-  document.getElementById("buy-polera-loco")?.addEventListener("click", () => {
-    if (window.addToCart) {
-      window.addToCart({
-        name: "Polera Misiones Premium",
-        price: 30.0,
-      });
-    }
-  });
+<script define:vars={{ 
+  imgNegro: poloNegro.src, 
+  imgVino: poloVino.src, 
+  imgArena: poloArena.src, 
+  imgMilitar: poloMilitar.src, 
+  imgAzul: poloAzulmarino.src 
+}}>
+  function attachPoleraListener() {
+    const btn = document.getElementById("buy-polera-loco");
+    if (!btn) return;
+    
+    btn.onclick = () => {
+      if (window.openProductModal) {
+        window.openProductModal({
+          name: "Polo Colección Misiones",
+          price: 30.00,
+          image: imgNegro,
+          colors: [
+            { name: "Negro", hex: "#111", image: imgNegro },
+            { name: "Arena", hex: "#C2B280", image: imgArena },
+            { name: "Verde Militar", hex: "#4B5320", image: imgMilitar },
+            { name: "Guinda", hex: "#800020", image: imgVino },
+            { name: "Azul Marino", hex: "#1a2a40", image: imgAzul },
+          ],
+        });
+      }
+    };
+  }
+  
+  attachPoleraListener();
+  document.addEventListener('astro:after-swap', attachPoleraListener);
 </script>

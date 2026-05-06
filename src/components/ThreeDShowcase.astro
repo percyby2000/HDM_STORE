@@ -2,35 +2,34 @@
 import imgPolera from "../assets/images/espaldar.svg";
 ---
 
-<section class="threed-showcase" id="threed-trigger">
+<section class="premium-showcase-v2" id="threed-section">
   <div class="container">
-    <div class="showcase-grid">
-      <!-- Lado del Texto -->
+    <div class="showcase-content-grid">
       <div class="text-side">
-        <span class="eyebrow">Exclusividad</span>
-        <h2 class="reveal">
-          MODA EN <br />
-          <span class="accent-text">MOVIMIENTO</span>
-        </h2>
-        <p class="reveal">
-          Descubre piezas únicas diseñadas para destacar en la jungla urbana.
-          Ingeniería textil con propósito.
-        </p>
-        <div class="reveal">
-          <button class="btn-outline" id="go-products-3d">Ver Colección</button>
+        <div class="reveal-stagger">
+          <span class="eyebrow-accent">Ingeniería Textil</span>
+          <h2 class="display-title">
+            MOVIMIENTO <br />
+            <span class="outline-display">SIN LÍMITES</span>
+          </h2>
+          <p class="description-text">
+            Diseñamos prendas que se adaptan a tu ritmo. Streetwear premium con un propósito que trasciende lo convencional.
+          </p>
+          <div class="btn-group">
+            <button class="btn-elite-dark" id="go-products-3d">EXPLORAR AHORA</button>
+          </div>
         </div>
       </div>
 
-      <!-- Lado del Producto (Animación 2D) -->
       <div class="visual-side">
-        <div class="product-wrapper">
+        <div class="floating-wrapper">
           <img
             src={imgPolera.src}
             alt="Polera Misiones"
-            class="main-polo-2d"
-            id="polo-2d-anim"
+            class="floating-product"
+            id="polo-dynamic-anim"
           />
-          <div class="shadow-2d"></div>
+          <div class="glow-backdrop"></div>
         </div>
       </div>
     </div>
@@ -38,13 +37,13 @@ import imgPolera from "../assets/images/espaldar.svg";
 </section>
 
 <style>
-  .threed-showcase {
-    position: relative;
-    padding: 15rem 0 5rem 0; /* Reduced bottom padding */
-    background: #80b6b29f; /* Mantenemos tu color personalizado */
-    min-height: 100vh;
+  .premium-showcase-v2 {
+    background: #80b6b2; /* Keeping your brand teal */
+    padding: 12rem 0;
+    min-height: 90vh;
     display: flex;
     align-items: center;
+    position: relative;
     overflow: hidden;
   }
 
@@ -55,103 +54,110 @@ import imgPolera from "../assets/images/espaldar.svg";
     width: 100%;
   }
 
-  .showcase-grid {
+  .showcase-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
-    gap: 4rem;
+    gap: 6rem;
   }
 
-  .eyebrow {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: #111;
+  .eyebrow-accent {
+    font-size: 0.75rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 2rem;
     display: block;
   }
 
-  h2 {
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
+  .display-title {
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
     font-weight: 950;
-    line-height: 0.9;
-    margin-bottom: 2rem;
-    letter-spacing: -3px;
+    line-height: 0.85;
+    letter-spacing: -4px;
     color: #111;
+    margin-bottom: 2.5rem;
   }
 
-  .accent-text {
-    color: #ffffff;
+  .outline-display {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #fff;
   }
 
-  p {
-    font-size: 1.1rem;
-    color: #111;
-    max-width: 400px;
+  .description-text {
+    font-size: 1.25rem;
+    color: rgba(0,0,0,0.7);
+    max-width: 450px;
     line-height: 1.6;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
-  .btn-outline {
-    padding: 1rem 2.5rem;
+  .btn-elite-dark {
+    padding: 1.2rem 3.5rem;
     background: #111;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 50px;
-    font-weight: 700;
+    border-radius: 100px;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: all 0.4s ease;
   }
 
-  /* ESTILO 2D */
+  .btn-elite-dark:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background: #000;
+  }
+
   .visual-side {
-    position: relative;
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
-  .product-wrapper {
+  .floating-wrapper {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     z-index: 2;
   }
 
-  .main-polo-2d {
+  .floating-product {
     width: 100%;
     height: auto;
-    display: block;
-    /* Estado inicial: un poco hacia la derecha */
-    transform: translateX(100px);
-    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 50px 80px rgba(0, 0, 0, 0.2));
   }
 
-  .shadow-2d {
+  .glow-backdrop {
     position: absolute;
-    bottom: -20px;
-    left: 10%;
-    width: 80%;
-    height: 15px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.1) 0%,
-      transparent 70%
-    );
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
     z-index: -1;
   }
 
   @media (max-width: 1024px) {
-    .showcase-grid {
+    .premium-showcase-v2 {
+      padding: 8rem 0;
+    }
+    .showcase-content-grid {
       grid-template-columns: 1fr;
       text-align: center;
     }
-    p {
-      margin: 0 auto 3rem;
+    .description-text {
+      margin: 0 auto 4rem;
     }
-    .main-polo-2d {
-      max-width: 320px;
-      margin: 0 auto;
-      transform: none !important;
+    .floating-wrapper {
+      max-width: 350px;
+    }
+    .container {
+      padding: 0 1.5rem;
     }
   }
 </style>
@@ -162,23 +168,47 @@ import imgPolera from "../assets/images/espaldar.svg";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animación 2D Cinematográfica
-  gsap.to("#polo-2d-anim", {
+  // Staggered reveals
+  gsap.from(".reveal-stagger > *", {
     scrollTrigger: {
-      trigger: ".threed-showcase",
+      trigger: ".premium-showcase-v2",
+      start: "top 80%",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.15,
+    ease: "power4.out"
+  });
+
+  // Intense Product Parallax on Scroll
+  gsap.to("#polo-dynamic-anim", {
+    scrollTrigger: {
+      trigger: ".premium-showcase-v2",
       start: "top bottom",
       end: "bottom top",
-      scrub: 1, // Movimiento muy fluido
+      scrub: 1,
     },
-    x: -120, // Se desliza suavemente hacia la izquierda
-    rotation: -8, // Ligero balanceo 2D
-    scale: 1.15, // Crece sutilmente
-    ease: "power2.out",
+    yPercent: -20,
+    rotation: 15,
+    scale: 1.2,
+    xPercent: 10,
+    ease: "none",
+  });
+
+  // Continuous Floating Animation (Idle)
+  gsap.to("#polo-dynamic-anim", {
+    y: 20,
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+
+  // Smooth Button Scroll
+  document.getElementById('go-products-3d')?.addEventListener('click', () => {
+    const target = document.getElementById('polera-trigger');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 </script>
 
-<script>
-  document.getElementById('go-products-3d')?.addEventListener('click', () => {
-    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-  });
-</script>

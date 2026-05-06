@@ -2,18 +2,18 @@
 import videoSource from "../assets/videos/video 2.mp4";
 ---
 
-<section class="video-section-scroll" id="video-reveal-trigger">
-  <div class="video-pin-container">
-    <div class="video-reveal-box">
-      <video autoplay muted loop playsinline class="bg-video-reveal">
+<section class="cinematic-video-section" id="video-trigger">
+  <div class="video-sticky-container">
+    <div class="video-inner-frame" id="video-frame">
+      <video autoplay muted loop playsinline class="hero-video">
         <source src={videoSource} type="video/mp4" />
       </video>
-      <div class="video-overlay-reveal">
-        <div class="container">
-          <h2 class="reveal-title">ESTILO QUE <br /> TRASCIENDE</h2>
-          <p class="reveal-desc">
-            Siente la calidad en cada fibra. Nuestra colección está diseñada para
-            durar y destacar.
+      
+      <div class="video-content-overlay">
+        <div class="text-reveal-container">
+          <h2 class="video-title">DISEÑO QUE <br/><span class="outline-white">INSPIRA</span></h2>
+          <p class="video-tagline">
+            Calidad excepcional en cada costura. Streetwear con propósito diseñado para la eternidad.
           </p>
         </div>
       </div>
@@ -22,19 +22,15 @@ import videoSource from "../assets/videos/video 2.mp4";
 </section>
 
 <style>
-  .video-section-scroll {
+  .cinematic-video-section {
+    height: 130vh; /* Reduced from 150vh for a tighter feel */
     position: relative;
-    width: 100%;
-    height: 120vh; /* Necesita ser > 100vh para que el efecto sticky funcione, pero 120vh es muy compacto y eficiente */
-    background: #80b6b29f;
-    margin: 0;
-    transition: background-color 0.5s ease;
+    background: #000;
   }
 
-  .video-pin-container {
+  .video-sticky-container {
     position: sticky;
     top: 0;
-    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -42,95 +38,121 @@ import videoSource from "../assets/videos/video 2.mp4";
     overflow: hidden;
   }
 
-  .video-reveal-box {
+  .video-inner-frame {
     position: relative;
-    width: 85vw;
-    height: 60vh; /* Slightly taller initial state */
+    width: 80vw;
+    height: 60vh;
     border-radius: 40px;
     overflow: hidden;
-    transform-origin: center center;
-    will-change: transform, border-radius, width, height;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-    z-index: 5;
+    will-change: width, height, border-radius;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
   }
 
-  .bg-video-reveal {
+  .hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
-  .video-overlay-reveal {
+  .video-content-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.6),
-      transparent 40%,
-      transparent 60%,
-      rgba(0, 0, 0, 0.6)
-    );
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.6) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    z-index: 2;
+    color: #fff;
+    padding: 2rem;
   }
 
-  .container {
-    padding: 0 2rem;
-    width: 100%;
-    max-width: 1200px;
-  }
-
-  h2 {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 900;
-    line-height: 0.9;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  .video-title {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 950;
+    line-height: 0.85;
+    letter-spacing: -3px;
+    margin-bottom: 2rem;
     opacity: 0;
-    transform: translateY(30px);
-    letter-spacing: -2px;
+    transform: translateY(40px);
   }
 
-  p {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    max-width: 550px;
+  .outline-white {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #fff;
+  }
+
+  .video-tagline {
+    font-size: 1.2rem;
+    max-width: 500px;
     margin: 0 auto;
+    color: rgba(255,255,255,0.8);
     opacity: 0;
     transform: translateY(20px);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-
-  /* Responsive Adjustments */
-  @media (max-width: 1024px) {
-    .video-reveal-box {
-      width: 90vw;
-      height: 55vh;
-    }
+    line-height: 1.6;
   }
 
   @media (max-width: 768px) {
-    .video-reveal-box {
-      width: 92vw;
-      height: 45vh;
-      border-radius: 24px;
+    .cinematic-video-section {
+      height: 120vh; /* Even more compact on mobile */
     }
-    h2 {
-      font-size: 3rem;
+    .video-inner-frame {
+      width: 85vw;
+      height: 40vh; /* Reduced height from 50vh */
+      border-radius: 20px;
     }
-  }
-
-  @media (max-height: 600px) {
-    .video-reveal-box {
-      height: 70vh;
+    .video-title {
+      font-size: 2.8rem; /* Slightly smaller title */
+    }
+    .video-tagline {
+      font-size: 1rem;
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Video Frame Expansion
+  gsap.to("#video-frame", {
+    width: "100vw",
+    height: "100vh",
+    borderRadius: "0px",
+    scrollTrigger: {
+      trigger: ".cinematic-video-section",
+      start: "top top",
+      end: "center top",
+      scrub: 1,
+    }
+  });
+
+  // Text Reveal
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".cinematic-video-section",
+      start: "center center",
+      end: "bottom top",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  tl.to(".video-title", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power4.out"
+  })
+  .to(".video-tagline", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power4.out"
+  }, "-=0.6");
+</script>
+

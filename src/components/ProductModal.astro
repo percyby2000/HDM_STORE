@@ -1,0 +1,529 @@
+---
+import metricapolo from "../assets/images/metricapolo.svg";
+---
+
+<div class="product-modal" id="product-modal">
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal-container">
+    <button class="close-modal" id="close-modal">&times;</button>
+
+    <div class="modal-content">
+      <div class="modal-grid">
+        <!-- Visual del Producto -->
+        <div class="product-preview">
+          <div class="preview-bg"></div>
+          <img id="modal-img" src="" alt="Producto" />
+        </div>
+
+        <!-- Opciones de Selección -->
+        <div class="selection-side">
+          <h2 id="modal-title">Nombre del Producto</h2>
+          <div class="modal-price" id="modal-price">S/. 00.00</div>
+          
+          <div class="selection-group">
+            <label class="label-bold">COLORES:</label>
+            <div class="color-options" id="color-selector">
+              <!-- Se inyectan dinámicamente -->
+            </div>
+          </div>
+
+          <div class="selection-group">
+            <label class="label-bold">TALLAS:</label>
+            <div class="size-options">
+              <button class="size-btn" data-size="S">S</button>
+              <button class="size-btn" data-size="M">M</button>
+              <button class="size-btn" data-size="L">L</button>
+              <button class="size-btn" data-size="XL">XL</button>
+            </div>
+          </div>
+
+          <!-- Selección de Modelo (Solo si aplica) -->
+          <div class="selection-group" id="style-group" style="display: none;">
+            <label class="label-bold">MODELO:</label>
+            <div class="style-options" id="style-selector">
+              <!-- Se inyectan dinámicamente -->
+            </div>
+          </div>
+
+          <button class="size-guide-trigger" id="size-guide-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+              ></path><path
+                d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+              ></path></svg
+            >
+            Ver Guía de Medidas
+          </button>
+
+          <button class="btn-confirm-add" id="confirm-add-btn">
+            <span>Añadir al Carrito</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><line x1="12" y1="5" x2="12" y2="19"></line><line
+                x1="5"
+                y1="12"
+                x2="19"
+                y2="12"></line></svg
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sub-modal para la Guía de Tallas -->
+  <div class="size-guide-modal" id="size-guide-modal">
+    <div class="guide-content">
+      <button class="close-guide" id="close-guide">&times;</button>
+      <h3>Guía de Medidas</h3>
+      <img src={metricapolo.src} alt="Guía de Medidas" />
+      <p>
+        Asegúrate de elegir la talla correcta. Las medidas son en centímetros.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-modal.active { display: flex; }
+
+  .modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+  }
+
+  .modal-container {
+    position: relative;
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow: hidden;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    animation: modalIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes modalIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+  }
+
+  .close-modal:hover { transform: rotate(90deg); }
+
+  .modal-content {
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-preview {
+    background: #fdfdfd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+  }
+
+  .product-preview img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  .selection-side {
+    padding: 4rem;
+    background: #fff;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .modal-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 2.5rem;
+  }
+
+  .selection-group { margin-bottom: 2.5rem; }
+
+  .label-bold {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .color-options { display: flex; gap: 1.2rem; align-items: center; }
+
+  :global(.color-dot) {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    border: 3px solid #fff !important;
+    box-shadow: 0 0 0 1px #eee;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  :global(.color-dot.active) {
+    box-shadow: 0 0 0 2px var(--color-primary) !important;
+    transform: scale(1.1);
+  }
+
+  .size-options { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  .size-btn {
+    width: 55px;
+    height: 55px;
+    border: 1px solid #eee;
+    background: #fff;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .size-btn:hover { background: #f9f9f9; }
+  .size-btn.active { background: #000; color: #fff; border-color: #000; }
+
+  .size-guide-trigger {
+    background: none;
+    border: none;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 3rem;
+    text-decoration: underline;
+  }
+
+  .btn-confirm-add {
+    width: 100%;
+    padding: 1.5rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: 0.4s;
+  }
+
+  .btn-confirm-add:hover { background: var(--color-primary); }
+
+  .style-options { display: flex; gap: 1rem; }
+
+  :global(.style-btn) {
+    flex: 1;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #eee;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  :global(.style-btn.active) { background: #000 !important; color: #fff !important; }
+
+  /* SIZE GUIDE MODAL */
+  .size-guide-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 20000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .size-guide-modal.active { display: flex; }
+
+  .guide-content {
+    background: white;
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
+
+  .guide-content img { width: 100%; margin: 2rem 0; }
+
+  .close-guide {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .modal-container {
+      width: 100%;
+      height: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+
+    .modal-grid { grid-template-columns: 1fr; }
+
+    .product-preview {
+      padding: 3rem 2rem;
+      height: 35vh;
+    }
+
+    .product-preview img { max-height: 100%; }
+
+    .selection-side {
+      padding: 2rem 1.5rem 8rem; /* Extra padding for sticky button */
+    }
+
+    h2 { font-size: 1.6rem; }
+
+    .modal-price { margin-bottom: 2rem; }
+
+    .btn-confirm-add {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.8rem;
+      border-radius: 0;
+      z-index: 100;
+    }
+
+    .close-modal {
+      top: 1rem;
+      right: 1rem;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      background: rgba(0,0,0,0.8);
+    }
+
+    .guide-content { padding: 2rem 1rem; width: 95%; }
+  }
+</style>
+
+<script is:inline>
+  // Definición global inmediata para evitar errores de sincronización
+  window.openProductModal = function (product) {
+    const modal = document.getElementById("product-modal");
+    if (!modal) {
+      console.error("No se encontró el modal en el DOM");
+      return;
+    }
+
+    // Inyectar datos en el modal
+    document.getElementById("modal-title").innerText = product.name;
+    document.getElementById("modal-price").innerText = `S/. ${product.price.toFixed(2)}`;
+    document.getElementById("modal-img").src = product.image;
+
+    // Guardar producto actual para la confirmación
+    window._currentModalProduct = product;
+    window._selectedColor = product.colors ? product.colors[0].name : "";
+    window._selectedSize = "";
+    window._selectedStyle = product.styles ? product.styles[0] : (product.name.includes("EDICIÓN ESPECIAL") ? "Sin Cierre" : "");
+
+    // Configurar Estilos
+    const styleGroup = document.getElementById("style-group");
+    const styleSelector = document.getElementById("style-selector");
+    const sizeGuideBtn = document.getElementById("size-guide-btn");
+
+    if (styleGroup && styleSelector) {
+      const styles = product.styles || (product.name.includes("EDICIÓN ESPECIAL") ? ["Sin Cierre", "Con Cierre"] : []);
+      if (styles.length > 0) {
+        styleGroup.style.display = "block";
+        if (sizeGuideBtn) sizeGuideBtn.style.display = "none";
+        styleSelector.innerHTML = "";
+        styles.forEach(style => {
+          const btn = document.createElement("button");
+          btn.className = `style-btn ${style === window._selectedStyle ? "active" : ""}`;
+          btn.innerText = style;
+          btn.onclick = () => {
+            window._selectedStyle = style;
+            document.querySelectorAll(".style-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+          };
+          styleSelector.appendChild(btn);
+        });
+      } else {
+        styleGroup.style.display = "none";
+        if (sizeGuideBtn) sizeGuideBtn.style.display = "flex";
+      }
+    }
+
+    // Configurar Colores
+    const colorContainer = document.getElementById("color-selector");
+    if (colorContainer) {
+      colorContainer.innerHTML = "";
+      if (product.colors && product.colors.length > 0) {
+        // Inicializar imagen actual
+        window._selectedColorImage = product.image; 
+
+        product.colors.forEach(color => {
+          const dot = document.createElement("button");
+          dot.className = `color-dot ${color.name === window._selectedColor ? "active" : ""}`;
+          dot.style.backgroundColor = color.hex;
+          dot.addEventListener("click", () => {
+            window._selectedColor = color.name;
+            document.querySelectorAll(".color-dot").forEach(d => d.classList.remove("active"));
+            dot.classList.add("active");
+            if (color.image) {
+              document.getElementById("modal-img").src = color.image;
+              window._selectedColorImage = color.image; // Guardar imagen elegida
+            }
+          });
+          colorContainer.appendChild(dot);
+        });
+      }
+    }
+
+    // Resetear tallas
+    document.querySelectorAll(".size-btn").forEach(btn => btn.classList.remove("active"));
+
+    // Mostrar modal
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+</script>
+
+<script>
+  const modal = document.getElementById("product-modal");
+  const overlay = document.getElementById("modal-overlay");
+  const closeBtn = document.getElementById("close-modal");
+  const confirmBtn = document.getElementById("confirm-add-btn");
+  const sizeGuideBtn = document.getElementById("size-guide-btn");
+  const sizeGuideModal = document.getElementById("size-guide-modal");
+  const closeGuide = document.getElementById("close-guide");
+
+  // Cerrar Modal
+  const closeModal = () => {
+    modal?.classList.remove("active");
+    document.body.style.overflow = "auto";
+  };
+  
+  closeBtn?.addEventListener("click", closeModal);
+  overlay?.addEventListener("click", closeModal);
+
+  // Seleccionar Talla
+  document.querySelectorAll(".size-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".size-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      (window as any)._selectedSize = btn.getAttribute("data-size");
+    });
+  });
+
+  // Confirmar y Añadir al Carrito
+  confirmBtn?.addEventListener("click", () => {
+    const selectedSize = (window as any)._selectedSize;
+    if (!selectedSize) {
+      if (window.showToast) window.showToast("Por favor, selecciona una talla", "error");
+      return;
+    }
+
+    const currentProduct = (window as any)._currentModalProduct;
+    const selectedColor = (window as any)._selectedColor;
+    const selectedStyle = (window as any)._selectedStyle;
+    const selectedColorImage = (window as any)._selectedColorImage;
+
+    const styleStr = selectedStyle ? ` - ${selectedStyle}` : "";
+    const finalProduct = {
+      ...currentProduct,
+      name: `${currentProduct.name} (${selectedColor}${styleStr} - Talla ${selectedSize})`,
+      image: selectedColorImage || currentProduct.image, // Usar imagen del color
+      variant: { color: selectedColor, size: selectedSize, style: selectedStyle },
+    };
+
+    if (window.addToCart) {
+      window.addToCart(finalProduct);
+      closeModal();
+    }
+  });
+
+  // Guía de tallas
+  sizeGuideBtn?.addEventListener("click", () => sizeGuideModal?.classList.add("active"));
+  closeGuide?.addEventListener("click", () => sizeGuideModal?.classList.remove("active"));
+</script>
