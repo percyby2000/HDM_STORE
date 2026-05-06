@@ -1,0 +1,225 @@
+---
+---
+
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3>Tu Pedido</h3>
+    <button id="close-cart">&times;</button>
+  </div>
+  
+  <div class="cart-body">
+    <div id="cart-items">
+      <!-- Items will be injected here -->
+      <p class="empty-msg">Tu carrito está vacío</p>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <div class="total">
+      <span>Total:</span>
+      <span id="cart-total">S/ 0.00</span>
+    </div>
+    <button class="btn-whatsapp-full" id="whatsapp-checkout">
+      Finalizar pedido por WhatsApp
+    </button>
+  </div>
+</div>
+
+<button class="cart-floating-btn" id="open-cart">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+  <span class="cart-count" id="cart-count">0</span>
+</button>
+
+<style>
+  .cart-floating-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 65px;
+    height: 65px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 3000;
+    box-shadow: 0 10px 30px rgba(85, 153, 138, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cart-floating-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--color-accent);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+  }
+
+  .cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 4000;
+    box-shadow: -20px 0 50px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cart-drawer.open {
+    right: 0;
+  }
+
+  .cart-header {
+    padding: 2rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-header h3 { font-weight: 800; letter-spacing: 1px; }
+
+  .close-cart {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cart-body {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+
+  .empty-msg {
+    text-align: center;
+    color: #999;
+    margin-top: 5rem;
+  }
+
+  .cart-footer {
+    padding: 2rem;
+    border-top: 1px solid #eee;
+    background: #f9f9f9;
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-whatsapp-full {
+    width: 100%;
+    background: #25D366;
+    color: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn-whatsapp-full:hover {
+    background: #20ba59;
+  }
+
+  @media (max-width: 768px) {
+    .cart-floating-btn {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 55px;
+      height: 55px;
+      z-index: 5000; /* Asegurar que esté por encima de todo */
+    }
+  }
+</style>
+
+<script>
+  // Simple Cart State
+  let cart = [];
+  const openBtn = document.getElementById('open-cart');
+  const closeBtn = document.getElementById('close-cart');
+  const drawer = document.getElementById('cart-drawer');
+  const checkoutBtn = document.getElementById('whatsapp-checkout');
+
+  openBtn?.addEventListener('click', () => drawer?.classList.add('open'));
+  closeBtn?.addEventListener('click', () => drawer?.classList.remove('open'));
+
+  // Function to add to cart (can be called from other components)
+  window.addToCart = (product) => {
+    cart.push(product);
+    updateCartUI();
+    drawer?.classList.add('open');
+  };
+
+  function updateCartUI() {
+    const countEl = document.getElementById('cart-count');
+    const itemsEl = document.getElementById('cart-items');
+    const totalEl = document.getElementById('cart-total');
+
+    if (countEl) countEl.innerText = cart.length.toString();
+    
+    if (itemsEl) {
+      if (cart.length === 0) {
+        itemsEl.innerHTML = '<p class="empty-msg">Tu carrito está vacío</p>';
+      } else {
+        itemsEl.innerHTML = cart.map((item, index) => `
+          <div style="display:flex; justify-content:space-between; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #eee">
+            <div>
+              <h4 style="font-size:1rem; margin-bottom:0.2rem">${item.name}</h4>
+              <span style="color:#666">S/ ${item.price.toFixed(2)}</span>
+            </div>
+            <button onclick="window.removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer">Eliminar</button>
+          </div>
+        `).join('');
+      }
+    }
+
+    const total = cart.reduce((acc, item) => acc + item.price, 0);
+    if (totalEl) totalEl.innerText = `S/ ${total.toFixed(2)}`;
+  }
+
+  window.removeFromCart = (index) => {
+    cart.splice(index, 1);
+    updateCartUI();
+  };
+
+  checkoutBtn?.addEventListener('click', () => {
+    if (cart.length === 0) return alert("Tu carrito está vacío");
+    
+    const phoneNumber = "51900000000"; // CAMBIA ESTO
+    let message = "¡Hola Misiones! Quiero realizar el siguiente pedido:\n\n";
+    cart.forEach(item => {
+      message += `- ${item.name} (S/ ${item.price})\n`;
+    });
+    const total = cart.reduce((acc, item) => acc + item.price, 0);
+    message += `\n*Total: S/ ${total.toFixed(2)}*`;
+    
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  });
+</script>

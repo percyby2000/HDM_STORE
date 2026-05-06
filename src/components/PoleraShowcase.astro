@@ -1,0 +1,368 @@
+---
+import imgPolos from "../assets/images/polos.jpeg";
+---
+
+<section class="polera-showcase-loco" id="polera-trigger">
+  <!-- Background Decorative Text -->
+  <div class="bg-scroll-text" id="bg-text-move">
+    MISIONES COLLECTION • ESTILO URBANO • COLORES •
+  </div>
+
+  <div class="floating-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="container">
+    <div class="header-minimal">
+      <h2 class="title-modern">
+        COLORES A TU <span class="outline-text">ESTILO</span>
+      </h2>
+      <p class="subtitle">Encuentra el tono que define tu personalidad.</p>
+    </div>
+
+    <div class="full-view-container">
+      <div class="collection-frame reveal-loco">
+        <img
+          src={imgPolos.src}
+          alt="Colección completa Misiones"
+          class="full-image-parallax"
+        />
+        <div class="floating-tag">NUEVA TEMPORADA</div>
+      </div>
+
+      <div class="simple-cta-box reveal-loco">
+        <div class="cta-content">
+          <div class="price-badge-floating">
+            <span class="price-label">OFERTA</span>
+            <span class="price-value">S/. 30</span>
+          </div>
+
+          <span class="eyebrow">Precio de Lanzamiento</span>
+          <h3>
+            EL MEJOR ESTILO <br />
+            <span class="text-gradient">AL MEJOR PRECIO</span>
+          </h3>
+          <p>
+            No sacrifiques calidad por precio. Llévate lo último en tendencia
+            streetwear por solo 30 soles.
+          </p>
+
+          <div class="cta-actions">
+            <button class="btn-buy-now-premium" id="buy-polera-loco">
+              <span class="btn-inner">
+                <span class="btn-text">COMPRAR AHORA</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                    points="12 5 19 12 12 19"></polyline></svg
+                >
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .polera-showcase-loco {
+    position: relative;
+    padding: 8rem 0 0rem;
+    background-color: #000;
+    overflow: hidden;
+  }
+
+  .bg-scroll-text {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    font-size: 20vw;
+    font-weight: 950;
+    color: rgba(255, 255, 255, 0.03);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+    pointer-events: none;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  .header-minimal {
+    position: relative;
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 2rem;
+    z-index: 10;
+  }
+
+  .title-modern {
+    font-size: clamp(3.5rem, 12vw, 10rem);
+    font-weight: 950;
+    line-height: 0.8;
+    letter-spacing: -6px;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .full-view-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collection-frame {
+    width: 100%;
+    position: relative;
+    background: #000;
+    line-height: 0;
+  }
+
+  .full-image-parallax {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: contrast(1.1) brightness(0.9);
+    transition: filter 0.5s ease;
+  }
+
+  .floating-tag {
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+    background: #fff;
+    color: #000;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-mono);
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    z-index: 5;
+    text-transform: uppercase;
+  }
+
+  .simple-cta-box {
+    width: 100%;
+    background: #000;
+    padding: 10rem 2rem 15rem;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    color: #fff;
+  }
+
+  .price-badge-floating {
+    display: inline-flex;
+    flex-direction: column;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    transform: rotate(-3deg);
+    box-shadow: 0 15px 30px rgba(85, 153, 138, 0.4);
+    border-radius: 5px;
+  }
+
+  .price-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    opacity: 0.9;
+  }
+
+  .price-value {
+    font-size: 3.5rem;
+    font-weight: 950;
+    line-height: 1;
+    margin-top: 0.5rem;
+  }
+
+  .eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 6px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+  }
+
+  .cta-content h3 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 950;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    letter-spacing: -2px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #fff, var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 4rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .btn-buy-now-premium {
+    position: relative;
+    padding: 2rem 6rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 0;
+    font-weight: 950;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-buy-now-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+
+  .btn-buy-now-premium:hover {
+    color: #fff;
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(85, 153, 138, 0.4);
+  }
+
+  .btn-buy-now-premium:hover::before {
+    left: 0;
+  }
+
+  .btn-buy-now-premium svg {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-buy-now-premium:hover svg {
+    transform: translateX(10px);
+  }
+
+  @media (max-width: 768px) {
+    .polera-showcase-loco {
+      padding: 6rem 0 4rem;
+    }
+    .title-modern {
+      font-size: 4rem;
+      letter-spacing: -2px;
+    }
+    .simple-cta-box {
+      padding: 4rem 1.5rem 8rem;
+    }
+    .price-value {
+      font-size: 2.5rem;
+    }
+    .btn-buy-now-premium {
+      padding: 1.5rem 3rem;
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Background Text Horizontal Move
+  gsap.to("#bg-text-move", {
+    scrollTrigger: {
+      trigger: ".polera-showcase-loco",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2,
+    },
+    xPercent: -50,
+  });
+
+  // Image Parallax (Subtle to avoid cropping)
+  gsap.to(".full-image-parallax", {
+    scrollTrigger: {
+      trigger: ".collection-frame",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    },
+    y: 50,
+    scale: 1.1,
+  });
+
+  // Reveal Animations
+  const revealLoco = document.querySelectorAll(".reveal-loco");
+  revealLoco.forEach((el) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+  });
+
+  // Funcionalidad del botón de compra
+  document.getElementById("buy-polera-loco")?.addEventListener("click", () => {
+    if (window.addToCart) {
+      window.addToCart({
+        name: "Polera Misiones Premium",
+        price: 30.0,
+      });
+    }
+  });
+</script>

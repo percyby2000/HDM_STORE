@@ -1,0 +1,375 @@
+---
+import imgMain from "../assets/images/polera.jpeg";
+---
+
+<section id="products" class="product-showcase">
+  <!-- Background Text Parallax -->
+  <div class="bg-parallax-text" id="parallax-text">MISIONES</div>
+
+  <div class="showcase-container">
+    <div class="product-info">
+      <div class="badge reveal">Edición Especial</div>
+      <h2 class="title-animate">
+        <span class="line">POLERA</span>
+        <span class="line text-accent">MISIONES HDM</span>
+      </h2>
+
+      <p class="description reveal">
+        "No solo hijos, también llamados". Una prenda diseñada para impactar,
+        con un propósito claro y la máxima calidad en cada detalle del bordado.
+      </p>
+
+      <div class="product-specs reveal">
+        <div class="spec-card">
+          <span class="spec-label">Estilo</span>
+          <span class="spec-value">Hoodie Oversized</span>
+        </div>
+        <div class="spec-card">
+          <span class="spec-label">Diseño</span>
+          <span class="spec-value">Premium Back Print</span>
+        </div>
+      </div>
+
+      <div class="price-section reveal">
+        <div class="price-container">
+          <span class="currency">S/</span>
+          <span class="amount">49.00</span>
+        </div>
+        <span class="stock-info">En stock - Envío inmediato</span>
+      </div>
+
+      <div class="actions reveal">
+        <button class="btn-whatsapp-premium" id="buy-whatsapp">
+          <div class="btn-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"
+              ></path></svg
+            >
+            <span>Lo quiero por WhatsApp</span>
+          </div>
+          <div class="btn-glow"></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="product-visual">
+      <div class="image-frame scroll-zoom">
+        <img src={imgMain.src} alt="Polera Misiones" class="featured-img" />
+      </div>
+      <div class="visual-accent"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-showcase {
+    min-height: 120vh;
+    padding: 10rem 0;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* TEXTO PARALLAX DE FONDO */
+  .bg-parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25vw;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .showcase-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 8rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: rgba(85, 153, 138, 0.1);
+    color: var(--color-primary);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ANIMACIÓN DE TÍTULO */
+  .title-animate .line {
+    display: block;
+    overflow: hidden;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: #1a1a1a;
+  }
+
+  .text-accent {
+    color: var(--color-primary);
+  }
+
+  .description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 480px;
+  }
+
+  .product-specs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .spec-card {
+    padding: 1.5rem;
+    background: #f8f8f8;
+    border-radius: 20px;
+    flex: 1;
+    transition: 0.3s;
+    border: 1px solid transparent;
+  }
+
+  .spec-card:hover {
+    background: #ffffff;
+    border-color: #eee;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .spec-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .spec-value {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #1a1a1a;
+  }
+
+  .price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .amount {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+  }
+
+  .stock-info {
+    font-size: 0.85rem;
+    color: #00ff3c;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3.5rem;
+  }
+
+  .stock-info::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #25cad3;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  .btn-whatsapp-premium {
+    position: relative;
+    background: #1a1a1a;
+    color: white;
+    padding: 1.2rem 2.8rem;
+    border-radius: 100px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, #1dbeb0 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.6s ease;
+    opacity: 0;
+  }
+
+  .btn-whatsapp-premium:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-whatsapp-premium:hover .btn-glow {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+
+  /* VISUAL SIDE */
+  .image-frame {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.08);
+    background: #f5f5f5;
+    border-radius: 0;
+  }
+
+  .featured-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .showcase-container {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      text-align: center;
+    }
+    .description,
+    .product-specs,
+    .price-container,
+    .btn-whatsapp-premium {
+      margin: 0 auto 2rem;
+    }
+    .price-container {
+      justify-content: center;
+    }
+    .stock-info {
+      justify-content: center;
+    }
+    .bg-parallax-text {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación de Parallax para el texto de fondo
+  gsap.to("#parallax-text", {
+    scrollTrigger: {
+      trigger: ".product-showcase",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2,
+    },
+    x: -200,
+    ease: "none",
+  });
+
+  // Animación del Título Principal al entrar
+  gsap.from(".title-animate .line", {
+    scrollTrigger: {
+      trigger: ".title-animate",
+      start: "top 80%",
+    },
+    y: 100,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power4.out",
+  });
+
+  // Animación de zoom suave en la imagen al hacer scroll
+  gsap.to(".scroll-zoom img", {
+    scrollTrigger: {
+      trigger: ".product-showcase",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    },
+    scale: 1.1,
+    ease: "none",
+  });
+
+  // Funcionalidad del botón de compra
+  document.getElementById('buy-whatsapp')?.addEventListener('click', () => {
+    if (window.addToCart) {
+      window.addToCart({
+        name: 'Polera Misiones HDM (Edición Especial)',
+        price: 49.00
+      });
+    }
+  });
+</script>

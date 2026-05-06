@@ -1,0 +1,37 @@
+:root {
+  /* IBM Plex Design System */
+  --font-main: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-serif: 'IBM Plex Serif', serif;
+
+  /* Core Colors */
+  --color-primary: #55998a; 
+  --color-accent: #8e7dbe;
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-text-light: #666666;
+  
+  /* Spacing */
+  --spacing-xl: 10rem;
+  
+  /* Transitions */
+  --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+h1, h2, h3, h4, .main-title, .highlight {
+  font-family: var(--font-main) !important;
+  font-weight: 800; /* Peso fuerte para el estilo Streetwear */
+}
+
+.eyebrow, .label, .btn-primary, .social-link {
+  font-family: var(--font-mono) !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

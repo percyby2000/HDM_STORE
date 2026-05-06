@@ -1,0 +1,32 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import MainHero from '../components/MainHero.astro';
+import ThreeDShowcase from '../components/ThreeDShowcase.astro';
+import VideoSection from '../components/VideoSection.astro';
+import PoleraShowcase from '../components/PoleraShowcase.astro';
+import ProductShowcase from '../components/ProductShowcase.astro';
+import Cart from '../components/Cart.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="MISIONES | Premium Streetwear">
+	<Navbar />
+	<main>
+		<MainHero />
+    <ThreeDShowcase />
+    <VideoSection />
+    <PoleraShowcase />
+    <ProductShowcase />
+	</main>
+  <Cart />
+  <Footer />
+</MainLayout>
+
+<style>
+	main {
+		overflow-x: hidden;
+		min-height: 100vh;
+		background-color: var(--color-bg);
+	}
+</style>

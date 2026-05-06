@@ -1,0 +1,184 @@
+---
+import imgPolera from "../assets/images/espaldar.svg";
+---
+
+<section class="threed-showcase" id="threed-trigger">
+  <div class="container">
+    <div class="showcase-grid">
+      <!-- Lado del Texto -->
+      <div class="text-side">
+        <span class="eyebrow">Exclusividad</span>
+        <h2 class="reveal">
+          MODA EN <br />
+          <span class="accent-text">MOVIMIENTO</span>
+        </h2>
+        <p class="reveal">
+          Descubre piezas únicas diseñadas para destacar en la jungla urbana.
+          Ingeniería textil con propósito.
+        </p>
+        <div class="reveal">
+          <button class="btn-outline" id="go-products-3d">Ver Colección</button>
+        </div>
+      </div>
+
+      <!-- Lado del Producto (Animación 2D) -->
+      <div class="visual-side">
+        <div class="product-wrapper">
+          <img
+            src={imgPolera.src}
+            alt="Polera Misiones"
+            class="main-polo-2d"
+            id="polo-2d-anim"
+          />
+          <div class="shadow-2d"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .threed-showcase {
+    position: relative;
+    padding: 15rem 0 5rem 0; /* Reduced bottom padding */
+    background: #80b6b29f; /* Mantenemos tu color personalizado */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    width: 100%;
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #111;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  h2 {
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 950;
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    letter-spacing: -3px;
+    color: #111;
+  }
+
+  .accent-text {
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #111;
+    max-width: 400px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  .btn-outline {
+    padding: 1rem 2.5rem;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* ESTILO 2D */
+  .visual-side {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .product-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    z-index: 2;
+  }
+
+  .main-polo-2d {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Estado inicial: un poco hacia la derecha */
+    transform: translateX(100px);
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+  }
+
+  .shadow-2d {
+    position: absolute;
+    bottom: -20px;
+    left: 10%;
+    width: 80%;
+    height: 15px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.1) 0%,
+      transparent 70%
+    );
+    z-index: -1;
+  }
+
+  @media (max-width: 1024px) {
+    .showcase-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    p {
+      margin: 0 auto 3rem;
+    }
+    .main-polo-2d {
+      max-width: 320px;
+      margin: 0 auto;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación 2D Cinematográfica
+  gsap.to("#polo-2d-anim", {
+    scrollTrigger: {
+      trigger: ".threed-showcase",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1, // Movimiento muy fluido
+    },
+    x: -120, // Se desliza suavemente hacia la izquierda
+    rotation: -8, // Ligero balanceo 2D
+    scale: 1.15, // Crece sutilmente
+    ease: "power2.out",
+  });
+</script>
+
+<script>
+  document.getElementById('go-products-3d')?.addEventListener('click', () => {
+    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

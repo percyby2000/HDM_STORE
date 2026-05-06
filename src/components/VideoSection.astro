@@ -1,0 +1,136 @@
+---
+import videoSource from "../assets/videos/video 2.mp4";
+---
+
+<section class="video-section-scroll" id="video-reveal-trigger">
+  <div class="video-pin-container">
+    <div class="video-reveal-box">
+      <video autoplay muted loop playsinline class="bg-video-reveal">
+        <source src={videoSource} type="video/mp4" />
+      </video>
+      <div class="video-overlay-reveal">
+        <div class="container">
+          <h2 class="reveal-title">ESTILO QUE <br /> TRASCIENDE</h2>
+          <p class="reveal-desc">
+            Siente la calidad en cada fibra. Nuestra colección está diseñada para
+            durar y destacar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-section-scroll {
+    position: relative;
+    width: 100%;
+    height: 120vh; /* Necesita ser > 100vh para que el efecto sticky funcione, pero 120vh es muy compacto y eficiente */
+    background: #80b6b29f;
+    margin: 0;
+    transition: background-color 0.5s ease;
+  }
+
+  .video-pin-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .video-reveal-box {
+    position: relative;
+    width: 85vw;
+    height: 60vh; /* Slightly taller initial state */
+    border-radius: 40px;
+    overflow: hidden;
+    transform-origin: center center;
+    will-change: transform, border-radius, width, height;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    z-index: 5;
+  }
+
+  .bg-video-reveal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+  }
+
+  .video-overlay-reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      transparent 40%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.6)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+
+  .container {
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(30px);
+    letter-spacing: -2px;
+  }
+
+  p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 550px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .video-reveal-box {
+      width: 90vw;
+      height: 55vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .video-reveal-box {
+      width: 92vw;
+      height: 45vh;
+      border-radius: 24px;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-height: 600px) {
+    .video-reveal-box {
+      height: 70vh;
+    }
+  }
+</style>
