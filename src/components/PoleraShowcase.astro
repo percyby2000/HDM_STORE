@@ -41,9 +41,14 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
     <div class="showcase-content">
       <div class="info-card animate-reveal-polera">
         <div class="offer-tag">OFERTA LIMITADA</div>
-        <h3>MÁS QUE ROPA, <br/><span class="highlight">ES UN MENSAJE</span></h3>
-        <p>Lleva la calidad premium a un precio sin precedentes. Algodón de alta densidad, bordado reforzado y un ajuste perfecto.</p>
-        
+        <h3>
+          MÁS QUE ROPA, <br /><span class="highlight">ES UN MENSAJE</span>
+        </h3>
+        <p>
+          Lleva la calidad premium a un precio sin precedentes. Algodón de alta
+          densidad, bordado reforzado y un ajuste perfecto.
+        </p>
+
         <div class="pricing-row">
           <div class="price-box">
             <span class="label">Ahora</span>
@@ -51,18 +56,43 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
           </div>
           <div class="divider"></div>
           <div class="shipping-box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect x="1" y="3" width="15" height="13"></rect><polygon
+                points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle
+                cx="5.5"
+                cy="18.5"
+                r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"
+              ></circle></svg
+            >
             <span>Envío a todo Perú</span>
           </div>
         </div>
 
-        <button
-          class="btn-checkout-premium"
-          id="buy-polera-loco"
-        >
-          <span>PEDIR POR WHATSAPP</span>
+        <button class="btn-checkout-premium" id="buy-polera-loco">
+          <span>PEDIR AHORA</span>
           <div class="btn-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                points="12 5 19 12 12 19"></polyline></svg
+            >
           </div>
         </button>
       </div>
@@ -149,7 +179,7 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
     margin-bottom: 6rem;
     border-radius: 2rem;
     overflow: hidden;
-    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
   }
 
   .image-container {
@@ -170,7 +200,7 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8));
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.8));
   }
 
   .floating-badge {
@@ -189,11 +219,11 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
   .info-card {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     padding: 5rem 4rem;
     border-radius: 3rem;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
   }
 
@@ -216,7 +246,9 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
     margin-bottom: 2rem;
   }
 
-  .highlight { color: var(--color-primary); }
+  .highlight {
+    color: var(--color-primary);
+  }
 
   .info-card p {
     font-size: 1.2rem;
@@ -258,7 +290,7 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
   .pricing-row .divider {
     height: 40px;
     width: 1px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .shipping-box {
@@ -328,22 +360,24 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
   }
 </style>
 
-<script define:vars={{ 
-  imgNegro: poloNegro.src, 
-  imgVino: poloVino.src, 
-  imgArena: poloArena.src, 
-  imgMilitar: poloMilitar.src, 
-  imgAzul: poloAzulmarino.src 
-}}>
+<script
+  define:vars={{
+    imgNegro: poloNegro.src,
+    imgVino: poloVino.src,
+    imgArena: poloArena.src,
+    imgMilitar: poloMilitar.src,
+    imgAzul: poloAzulmarino.src,
+  }}
+>
   function attachPoleraListener() {
     const btn = document.getElementById("buy-polera-loco");
     if (!btn) return;
-    
+
     btn.onclick = () => {
       if (window.openProductModal) {
         window.openProductModal({
           name: "Polo Colección Misiones",
-          price: 30.00,
+          price: 30.0,
           image: imgNegro,
           colors: [
             { name: "Negro", hex: "#111", image: imgNegro },
@@ -356,7 +390,7 @@ import poloAzulmarino from "../assets/polos/AzulMarino.png";
       }
     };
   }
-  
+
   attachPoleraListener();
-  document.addEventListener('astro:after-swap', attachPoleraListener);
+  document.addEventListener("astro:after-swap", attachPoleraListener);
 </script>
